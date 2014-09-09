@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby "2.2.0"
 
 # Gems required in all environments
-gem 'rails', '4.1.6.rc2'
+gem 'rails', '4.2.0.beta2'
 
 gem 'puma'
 gem 'puma_auto_tune', github: "schneems/puma_auto_tune"
@@ -53,7 +53,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0'
+  # gem 'sass-rails'
+  gem 'sprockets-rails', '3.0.0.beta1'
   gem 'coffee-rails', '~> 4.0.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'uglifier', '>= 1.0.3'
