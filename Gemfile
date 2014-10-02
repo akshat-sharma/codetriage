@@ -6,7 +6,7 @@ ruby "2.2.0"
 gem 'rails', '4.2.0.beta2'
 
 gem 'puma'
-gem 'puma_auto_tune', github: "schneems/puma_auto_tune"
+gem 'puma_auto_tune',  github: "prathamesh-sonpatki/puma_auto_tune", branch: 'fix-detection-of-ram'
 gem 'sprockets_better_errors'
 gem 'skylight'
 gem 'git_hub_bub'
