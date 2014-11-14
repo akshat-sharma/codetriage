@@ -2,8 +2,8 @@ require 'resque/server'
 
 
 CodeTriage::Application.routes.draw do
-  get "users/sign_in" => redirect('/users/auth/github'), via: [:get, :post]
-  get "users/sign_up" => redirect('/users/auth/github'), via: [:get, :post]
+  get "users/sign_in", to: redirect('/users/auth/github'), via: [:get, :post]
+  get "users/sign_up", to: redirect('/users/auth/github'), via: [:get, :post]
 
   devise_for  :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks",  registrations: "users"}
 
@@ -14,8 +14,8 @@ CodeTriage::Application.routes.draw do
   end
 
   resources   :users
-  get         "/users/unsubscribe/:account_delete_token" => "users#token_delete", as: :token_delete_user
-  delete      "/users/unsubscribe/:account_delete_token" => "users#token_destroy"
+  get         "/users/unsubscribe/:account_delete_token", to: "users#token_delete", as: :token_delete_user
+  delete      "/users/unsubscribe/:account_delete_token", to: "users#token_destroy"
 
   resources   :issue_assignments
 
@@ -24,7 +24,7 @@ CodeTriage::Application.routes.draw do
   resources   :repo_subscriptions
 
   if Rails.env.development?
-    mount UserMailer::Preview => 'mail_view'
+    mount UserMailer::Preview, to: 'mail_view'
   end
 
   mount Resque::Server.new, at: "/codetriage/resque"

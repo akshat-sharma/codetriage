@@ -42,7 +42,7 @@ group :test do
   gem 'webmock'
   gem 'vcr'
   gem 'mocha', require: false
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
 end
 
 group :development, :test do
